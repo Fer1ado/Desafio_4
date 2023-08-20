@@ -1,6 +1,7 @@
 import Product from "./Productos.js"
 import { _dirname } from "../path.js"
 import { promises as fs } from "fs";
+import ProductManager from "../Clases/productManager.js";
 ///////////////////////////////////////////////////////////////////////////////////////
 ///CREACION DE ITEMS
 
@@ -90,12 +91,12 @@ const producto1 = new Product(
     true
   );
   
-  
+
+ 
+  const ejecutar = new ProductManager();
   
   export default async function primerboot() {
-    const producto = JSON.parse(
-      await fs.readFile(`${_dirname}/products.json`, "utf-8")
-    );
+    const producto = JSON.parse( await fs.readFile(`${_dirname}/Json/products.json`, "utf-8"));
    
   
     if (producto.length === 0) {
@@ -107,6 +108,8 @@ const producto1 = new Product(
       ejecutar.addProduct(producto6);
       ejecutar.addProduct(producto7);
       ejecutar.addProduct(producto8);
+      ejecutar.addProduct(producto9);
+      ejecutar.addProduct(producto10);
   
       return;
     } else {

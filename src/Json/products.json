@@ -48,5 +48,35 @@
     "stock": 12,
     "status": true,
     "id": 6
+  },
+  {
+    "title": "Mango",
+    "description": "El mango es una fruta tropical originaria del sur y sureste asiático. Es una fruta dulce y jugosa que se puede comer fresca o utilizarse para hacer postres y bebidas.",
+    "price": 199,
+    "thumbnail": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.natureword.com%2Fbenefits-of-mango-fruit-and-leaves-for-health-and-beauty%2F&psig=AOvVaw1J7b8XJf8G4cYJfZrI4tW-&ust=1661231748742000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJjR5JLZyfMCFQAAAAAdAAAAABAD",
+    "code": "MNGO-001",
+    "stock": 100,
+    "status": true,
+    "id": 7
+  },
+  {
+    "title": "Ñame",
+    "description": "El ñame es un tubérculo originario de África y Asia. Es rico en carbohidratos y se puede cocinar de muchas maneras diferentes.",
+    "price": 159,
+    "thumbnail": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.natureword.com%2Fyam-root-benefits-for-health-and-beauty%2F&psig=AOvVaw3J5ZJzJ6L7fQ4z5rG8vQjK&ust=1661231877512000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJjR5JLZyfMCFQAAAAAdAAAAABAD",
+    "code": "YAM-001",
+    "stock": 100,
+    "status": true,
+    "id": 9
+  },
+  {
+    "title": "Batata",
+    "description": "La batata es un tubérculo originario de América del Sur. Es rica en vitamina A y se puede cocinar de muchas maneras diferentes.",
+    "price": 199,
+    "thumbnail": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.natureword.com%2Fsweet-potato-benefits-for-health-and-beauty%2F&psig=AOvVaw1gX9TmKl7W8t4pHxXsKk9-&ust=1661231916342000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJjR5JLZyfMCFQAAAAAdAAAAABAD",
+    "code": "BT-001",
+    "stock": 100,
+    "status": true,
+    "id": 10
   }
 ]

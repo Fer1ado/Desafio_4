@@ -4,12 +4,6 @@ import { Router } from "express";
 const prodRoute = Router();
 const ejecutar = new ProductManager();
 
-prodRoute.get("/", async (req, res) => {
-   const {limit} = req.query
-   const prods = await ejecutar.getProducts;
-   const products = prods.slice(0,limit)
-   res.status(200).send(products)
-});
 
 //pedido de productos por ID
 prodRoute.get("/:pid", async (req, res) => {

@@ -1,9 +1,7 @@
 import { promises as fs } from "fs";
-import Carrito from "./carrito.js";
-import productManager from "./productManager.js";
+import { _dirname } from "../path.js"
 
-const rutaCarro = "../carrito.json";
-const ruta = "../products.json";
+const rutaCarro = `${_dirname}/Json/carrito.json`;
 
 export default class CarritoManager {
   constructor() {
@@ -15,35 +13,46 @@ export default class CarritoManager {
     return produ.some((e) => e.id === id);
   }
 
-  async addCarrito(id) {
+  async founded(id) {
     const produ = JSON.parse(await fs.readFile(ruta, "utf-8"));
     const item = produ.find((e) => e.id === id);
-    const idCheck = await this.isAdded(item.id);
+    if (item) {
+      return item;
+    } else {
+      return null;
+    }
+  }
 
-    console.log(idCheck);
+  async getCarrito(){
+    const producto = JSON.parse(await fs.readFile(rutaCarro, "utf-8"));
+    return producto;
+  }
 
-    if (idCheck) {
+  async addCarrito(id) {
+    const item = await this.founded(id);
+
+    if (item === null) {
+      return "producto inexistente";
+    }
+    if (await this.isAdded(item.id)) {
       const vieneCarro = JSON.parse(await fs.readFile(rutaCarro, "utf-8"));
       const indx = vieneCarro.findIndex((e) => e.id === parseInt(item.id));
       const nuevoValor = vieneCarro[indx].cantidad + 1;
-      const creado = new Carrito(item.id, nuevoValor);
-      const nuevoJson = vieneCarro.slice(indx, indx);
-      await fs.writeFile(rutaCarro, JSON.stringify(nuevoJson));
-      let saborido = [creado, ...nuevoJson];
-      console.log(saborido);
-      await fs.writeFile(rutaCarro, JSON.stringify(saborido));
-      
-      console.log("numero incrementado en Carrito");
-      return;
+      const creado = { id: item.id, cantidad: nuevoValor };
+      let nuevoJson = vieneCarro.filter((prod) => prod.id != item.id);
+      let template = nuevoJson.concat(creado);
+      await fs.writeFile(rutaCarro, JSON.stringify(template));
+      return "numero incrementado en Carrito";
     } else {
-      const creado = new Carrito(item.id, 1);
-      await fs.writeFile(rutaCarro, JSON.stringify(creado));
-      console.log("producto agregado a carrito");
-      return;
+      const crear = { id: item.id, cantidad: 1 };
+      const vieneCarro = JSON.parse(await fs.readFile(rutaCarro, "utf-8"));
+      const push = vieneCarro.concat(crear);
+      await fs.writeFile(rutaCarro, JSON.stringify(push));
+      return "producto agregado a carrito";
     }
   }
 }
 
-const carro = new CarritoManager();
 
-carro.addCarrito(4);
+
+
